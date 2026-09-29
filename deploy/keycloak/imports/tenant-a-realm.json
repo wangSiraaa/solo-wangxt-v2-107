@@ -1,0 +1,62 @@
+{
+  "realm": "tenant-a",
+  "enabled": true,
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "loginTheme": "keycloak",
+  "accessTokenLifespan": 300,
+  "users": [
+    {
+      "username": "a.alice",
+      "email": "shared@example.com",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [{"type": "password", "value": "password", "temporary": false}],
+      "roles": ["user"],
+      "requiredActions": []
+    },
+    {
+      "username": "a.carol",
+      "email": "a.carol@example.com",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [{"type": "password", "value": "password", "temporary": false}],
+      "roles": ["user"],
+      "requiredActions": []
+    },
+    {
+      "username": "a.dave",
+      "email": "a.dave@example.com",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [{"type": "password", "value": "password", "temporary": false}],
+      "roles": ["user"],
+      "requiredActions": []
+    }
+  ],
+  "roles": {
+    "realm": [
+      {"name": "user"}
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "multitenant-app",
+      "enabled": true,
+      "publicClient": true,
+      "redirectUris": [
+        "http://localhost:8080/callback/login",
+        "http://localhost:8080/callback/link"
+      ],
+      "webOrigins": ["+"],
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "consentRequired": false,
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:8080/*",
+        "pkce.code.challenge.method": "S256"
+      }
+    }
+  ]
+}

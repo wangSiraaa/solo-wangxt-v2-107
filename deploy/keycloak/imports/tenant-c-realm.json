@@ -1,0 +1,28 @@
+{
+  "realm": "tenant-c",
+  "enabled": true,
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "users": [
+    {
+      "username": "c.alice",
+      "email": "shared@example.com",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [{"type": "password", "value": "password", "temporary": false}],
+      "requiredActions": []
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "multitenant-app",
+      "enabled": true,
+      "publicClient": true,
+      "redirectUris": ["http://localhost:8080/callback/login"],
+      "webOrigins": ["+"],
+      "standardFlowEnabled": true,
+      "consentRequired": false
+    }
+  ]
+}
